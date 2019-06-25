@@ -39,6 +39,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -71,6 +72,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanLyBenhVien.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBenhVien.dbml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_Action.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +113,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="QuanLyBenhVien.dbml.layout">
+      <DependentUpon>QuanLyBenhVien.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="UserControls\UC_Action.resx">
       <DependentUpon>UC_Action.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +134,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QuanLyBenhVien.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QuanLyBenhVien.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -150,6 +164,9 @@
     <Content Include="Images\icons8-web-design-50.png" />
     <Content Include="Images\icons8-xbox-cross-filled-50 %28white%29.png" />
     <Content Include="Images\icons8-xbox-cross-filled-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
