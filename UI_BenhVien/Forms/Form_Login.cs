@@ -84,6 +84,7 @@ namespace UI_BenhVien
 
         private void txbUsername_OnValueChanged(object sender, EventArgs e)
         {
+            testtttt
         }
     }
 }
