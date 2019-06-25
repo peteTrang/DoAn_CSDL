@@ -68,16 +68,18 @@
             this.panelControl.Controls.Add(this.buttonExit);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl.Location = new System.Drawing.Point(0, 0);
+            this.panelControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(440, 84);
+            this.panelControl.Size = new System.Drawing.Size(330, 68);
             this.panelControl.TabIndex = 5;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(10, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(8, 10);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(66, 52);
+            this.pictureBox3.Size = new System.Drawing.Size(50, 42);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
@@ -90,9 +92,10 @@
             this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimize.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMinimize.ForeColor = System.Drawing.Color.White;
-            this.buttonMinimize.Location = new System.Drawing.Point(291, 12);
+            this.buttonMinimize.Location = new System.Drawing.Point(218, 10);
+            this.buttonMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Size = new System.Drawing.Size(67, 59);
+            this.buttonMinimize.Size = new System.Drawing.Size(50, 48);
             this.buttonMinimize.TabIndex = 5;
             this.buttonMinimize.Text = "-";
             this.buttonMinimize.UseVisualStyleBackColor = false;
@@ -103,9 +106,10 @@
             this.lblGreeting.AutoSize = true;
             this.lblGreeting.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGreeting.ForeColor = System.Drawing.Color.White;
-            this.lblGreeting.Location = new System.Drawing.Point(90, 20);
+            this.lblGreeting.Location = new System.Drawing.Point(68, 16);
+            this.lblGreeting.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGreeting.Name = "lblGreeting";
-            this.lblGreeting.Size = new System.Drawing.Size(109, 35);
+            this.lblGreeting.Size = new System.Drawing.Size(90, 29);
             this.lblGreeting.TabIndex = 0;
             this.lblGreeting.Text = "FETEL\r\n";
             this.lblGreeting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -118,9 +122,10 @@
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.ForeColor = System.Drawing.Color.White;
-            this.buttonExit.Location = new System.Drawing.Point(367, 12);
+            this.buttonExit.Location = new System.Drawing.Point(275, 10);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(67, 59);
+            this.buttonExit.Size = new System.Drawing.Size(50, 48);
             this.buttonExit.TabIndex = 5;
             this.buttonExit.Text = "X";
             this.buttonExit.UseVisualStyleBackColor = false;
@@ -138,9 +143,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 180);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 146);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(77, 72);
+            this.pictureBox1.Size = new System.Drawing.Size(58, 58);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -158,13 +164,14 @@
             this.txbUsername.LineIdleColor = System.Drawing.Color.SeaGreen;
             this.txbUsername.LineMouseHoverColor = System.Drawing.Color.SeaGreen;
             this.txbUsername.LineThickness = 4;
-            this.txbUsername.Location = new System.Drawing.Point(96, 193);
-            this.txbUsername.Margin = new System.Windows.Forms.Padding(6, 1, 6, 6);
+            this.txbUsername.Location = new System.Drawing.Point(72, 157);
+            this.txbUsername.Margin = new System.Windows.Forms.Padding(4, 1, 4, 5);
             this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(315, 49);
+            this.txbUsername.Size = new System.Drawing.Size(236, 40);
             this.txbUsername.TabIndex = 0;
             this.txbUsername.Text = "Tài khoản";
             this.txbUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbUsername.OnValueChanged += new System.EventHandler(this.txbUsername_OnValueChanged);
             this.txbUsername.Enter += new System.EventHandler(this.txbUsername_Enter);
             this.txbUsername.Leave += new System.EventHandler(this.txbUsername_Leave);
             // 
@@ -181,10 +188,10 @@
             this.txbPassword.LineIdleColor = System.Drawing.Color.SeaGreen;
             this.txbPassword.LineMouseHoverColor = System.Drawing.Color.SeaGreen;
             this.txbPassword.LineThickness = 4;
-            this.txbPassword.Location = new System.Drawing.Point(96, 272);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(6, 1, 6, 6);
+            this.txbPassword.Location = new System.Drawing.Point(72, 221);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(4, 1, 4, 5);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(315, 49);
+            this.txbPassword.Size = new System.Drawing.Size(236, 40);
             this.txbPassword.TabIndex = 1;
             this.txbPassword.Text = "Password";
             this.txbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -194,9 +201,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(10, 258);
+            this.pictureBox2.Location = new System.Drawing.Point(8, 210);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(77, 72);
+            this.pictureBox2.Size = new System.Drawing.Size(58, 58);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -214,9 +222,10 @@
             this.btnSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignUp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.ForeColor = System.Drawing.Color.Green;
-            this.btnSignUp.Location = new System.Drawing.Point(167, 415);
+            this.btnSignUp.Location = new System.Drawing.Point(125, 337);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(136, 32);
+            this.btnSignUp.Size = new System.Drawing.Size(102, 26);
             this.btnSignUp.TabIndex = 3;
             this.btnSignUp.Text = "Đăng ký";
             this.btnSignUp.UseVisualStyleBackColor = false;
@@ -230,9 +239,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(181, 90);
+            this.pictureBox4.Location = new System.Drawing.Point(136, 73);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(91, 74);
+            this.pictureBox4.Size = new System.Drawing.Size(68, 60);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
@@ -243,9 +253,10 @@
             this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignIn.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignIn.ForeColor = System.Drawing.Color.Green;
-            this.btnSignIn.Location = new System.Drawing.Point(157, 344);
+            this.btnSignIn.Location = new System.Drawing.Point(118, 280);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(163, 50);
+            this.btnSignIn.Size = new System.Drawing.Size(122, 41);
             this.btnSignIn.TabIndex = 2;
             this.btnSignIn.Text = "Đăng nhập";
             this.btnSignIn.UseVisualStyleBackColor = true;
@@ -261,10 +272,10 @@
             // Form_Login
             // 
             this.AcceptButton = this.btnSignIn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(440, 469);
+            this.ClientSize = new System.Drawing.Size(330, 381);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnSignUp);
@@ -274,6 +285,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

@@ -81,5 +81,9 @@ namespace UI_BenhVien
             Form_SignUp form_signup = new Form_SignUp();
             form_signup.ShowDialog();
         }
+
+        private void txbUsername_OnValueChanged(object sender, EventArgs e)
+        {
+        }
     }
 }
