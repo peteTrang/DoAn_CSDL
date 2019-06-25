@@ -75,5 +75,11 @@ namespace UI_BenhVien
         }
 
         #endregion
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            Form_SignUp form_signup = new Form_SignUp();
+            form_signup.ShowDialog();
+        }
     }
 }

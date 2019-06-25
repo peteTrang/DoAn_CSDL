@@ -220,6 +220,7 @@
             this.btnSignUp.TabIndex = 3;
             this.btnSignUp.Text = "Đăng ký";
             this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // bunifuElipse2
             // 
