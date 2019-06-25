@@ -82,9 +82,5 @@ namespace UI_BenhVien
             form_signup.ShowDialog();
         }
 
-        private void txbUsername_OnValueChanged(object sender, EventArgs e)
-        {
-            testtttt
-        }
     }
 }

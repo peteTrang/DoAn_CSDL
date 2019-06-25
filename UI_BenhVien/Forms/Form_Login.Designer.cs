@@ -171,7 +171,6 @@
             this.txbUsername.TabIndex = 0;
             this.txbUsername.Text = "Tài khoản";
             this.txbUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txbUsername.OnValueChanged += new System.EventHandler(this.txbUsername_OnValueChanged);
             this.txbUsername.Enter += new System.EventHandler(this.txbUsername_Enter);
             this.txbUsername.Leave += new System.EventHandler(this.txbUsername_Leave);
             // 

@@ -25,5 +25,29 @@ namespace UI_BenhVien.Forms
         {
             this.Close();
         }
+
+
+        #region Effect
+        private void btnSignUp_Enter(object sender, EventArgs e)
+        {
+            btnSignUp.BackColor = Color.Green;
+            btnSignUp.ForeColor = Color.White;
+        }
+
+        private void btnSignUp_Leave(object sender, EventArgs e)
+        {
+            btnSignUp.BackColor = Color.White;
+            btnSignUp.ForeColor = Color.Green;
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            if (true)
+            {
+                //ptbMessage = @"Images\icons8-checkmark-filled-50";
+            }
+        }
     }
+        #endregion
 }
+
