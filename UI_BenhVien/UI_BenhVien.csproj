@@ -112,6 +112,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="QuanLyBenhVien.dbml.layout">
       <DependentUpon>QuanLyBenhVien.dbml</DependentUpon>
@@ -144,6 +145,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\icons8-checkmark-filled-50.png" />
     <Content Include="Images\icons8-circled-x-50.png" />
     <Content Include="Images\icons8-code-50.png" />
     <Content Include="Images\icons8-database-50.png" />
@@ -156,6 +158,7 @@
     <Content Include="Images\icons8-microsoft-admin-filled-50.png" />
     <Content Include="Images\icons8-minus-48.png" />
     <Content Include="Images\icons8-multiply-50.png" />
+    <None Include="Images\icons8-no-50.png" />
     <Content Include="Images\icons8-person-64.png" />
     <Content Include="Images\icons8-treatment-32.png" />
     <Content Include="Images\icons8-treatment-50 %281%29.png" />

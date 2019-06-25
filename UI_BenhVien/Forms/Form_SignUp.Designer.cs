@@ -168,7 +168,7 @@
             // 
             // ptbMessage
             // 
-            this.ptbMessage.Image = ((System.Drawing.Image)(resources.GetObject("ptbMessage.Image")));
+            this.ptbMessage.Image = global::UI_BenhVien.Properties.Resources.icons8_no_50;
             this.ptbMessage.Location = new System.Drawing.Point(2, 6);
             this.ptbMessage.Name = "ptbMessage";
             this.ptbMessage.Size = new System.Drawing.Size(55, 50);

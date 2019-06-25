@@ -42,10 +42,20 @@ namespace UI_BenhVien.Forms
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            if (true)
+            bool b = false; // condition to be succeed or fail
+            if (b)
             {
-                //ptbMessage = @"Images\icons8-checkmark-filled-50";
+                ptbMessage.Image = global::UI_BenhVien.Properties.Resources.icons8_checkmark_filled_50;
+                txbMessage.Text = "Thành công!";
+                txbMessage.ForeColor = Color.Green;
             }
+            else
+            {
+                ptbMessage.Image = global::UI_BenhVien.Properties.Resources.icons8_no_50;
+                txbMessage.Text = "Không thành công!";
+                txbMessage.ForeColor = Color.Red;
+            }
+            pnlMessage.Visible = true;
         }
     }
         #endregion
