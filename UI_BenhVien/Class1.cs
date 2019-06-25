@@ -8,5 +8,6 @@ namespace UI_BenhVien
 {
     class Class1
     {
+        //test
     }
 }
