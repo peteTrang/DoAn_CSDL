@@ -42,6 +42,9 @@ namespace UI_BenhVien.Forms
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            //code
+
+            // effect
             bool b = false; // condition to be succeed or fail
             if (b)
             {
