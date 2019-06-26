@@ -32,7 +32,7 @@
             this.txbUsername = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txbPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnExit = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSignUp = new System.Windows.Forms.Button();
@@ -88,25 +88,25 @@
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
-            // bunifuMaterialTextbox1
+            // txbPassword
             // 
-            this.bunifuMaterialTextbox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.bunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox1.HintText = "";
-            this.bunifuMaterialTextbox1.isPassword = false;
-            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.PaleGreen;
-            this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.SeaGreen;
-            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.PaleGreen;
-            this.bunifuMaterialTextbox1.LineThickness = 5;
-            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(81, 178);
-            this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox1.Name = "bunifuMaterialTextbox1";
-            this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(216, 33);
-            this.bunifuMaterialTextbox1.TabIndex = 1;
-            this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbPassword.BackColor = System.Drawing.Color.Gainsboro;
+            this.txbPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbPassword.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txbPassword.HintForeColor = System.Drawing.Color.Empty;
+            this.txbPassword.HintText = "";
+            this.txbPassword.isPassword = false;
+            this.txbPassword.LineFocusedColor = System.Drawing.Color.PaleGreen;
+            this.txbPassword.LineIdleColor = System.Drawing.Color.SeaGreen;
+            this.txbPassword.LineMouseHoverColor = System.Drawing.Color.PaleGreen;
+            this.txbPassword.LineThickness = 5;
+            this.txbPassword.Location = new System.Drawing.Point(81, 178);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txbPassword.Name = "txbPassword";
+            this.txbPassword.Size = new System.Drawing.Size(216, 33);
+            this.txbPassword.TabIndex = 1;
+            this.txbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // btnExit
             // 
@@ -211,7 +211,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.bunifuMaterialTextbox1);
+            this.Controls.Add(this.txbPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txbUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -233,7 +233,7 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txbUsername;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox1;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txbPassword;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSignUp;

@@ -42,10 +42,42 @@ namespace UI_BenhVien.Forms
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            bool b = false;
             //code
-
+            using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext())
+            {
+                if(txbUsername.Text == String.Empty)
+                {
+                    MessageBox.Show("Không được để trống mục username", "Thông báo");
+                }
+                if(txbPassword.Text == String.Empty)
+                {
+                    MessageBox.Show("Không được để trống mục password", "Thông báo");
+                }
+                if(txbUsername.Text != String.Empty && txbPassword.Text != String.Empty)
+                {
+                    var a = from acc in db.accounts
+                            where acc.usernamme == txbUsername.Text
+                            select acc;
+                    if (a.Count() > 0)
+                    {
+                        MessageBox.Show("Username đã được sử dụng. Xin nhập một username khác", "Thông báo");
+                    }
+                    else
+                    {
+                        account newAcc = new account();
+                        newAcc.usernamme = txbUsername.Text;
+                        newAcc.password = txbPassword.Text;
+                        newAcc.tenhienthi = txbUsername.Text;
+                        newAcc.admin = false;
+                        db.accounts.InsertOnSubmit(newAcc);
+                        db.SubmitChanges();
+                        b = true;
+                    }
+                }
+            }
             // effect
-            bool b = false; // condition to be succeed or fail
+            // condition to be succeed or fail
             if (b)
             {
                 ptbMessage.Image = global::UI_BenhVien.Properties.Resources.icons8_checkmark_filled_50;
