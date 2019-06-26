@@ -17,7 +17,7 @@ namespace UI_BenhVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Login());
+            Application.Run(new Form_Menu());
         }
     }
 }

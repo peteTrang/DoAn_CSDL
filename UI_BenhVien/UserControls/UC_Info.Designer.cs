@@ -51,7 +51,7 @@
             this.txbID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbID.ForeColor = System.Drawing.Color.DimGray;
-            this.txbID.Location = new System.Drawing.Point(89, 4);
+            this.txbID.Location = new System.Drawing.Point(97, 5);
             this.txbID.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.txbID.Name = "txbID";
             this.txbID.ReadOnly = true;
@@ -178,6 +178,7 @@
             this.btnDelete.TabIndex = 8;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 

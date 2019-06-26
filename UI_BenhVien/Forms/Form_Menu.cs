@@ -16,8 +16,7 @@ namespace UI_BenhVien.Forms
         public Form_Menu()
         {
             InitializeComponent();
-            // Trigger click event
-            //btnAction_Click(null, null);
+            lblHello.Text = Form_Login.DisplayName;
         }
         private static Form_Menu instance;
         public static Form_Menu Instance
@@ -31,17 +30,6 @@ namespace UI_BenhVien.Forms
                 instance = value;
             }
         }
-        //private Panel PanelContainer
-        //{
-        //    get
-        //    {
-        //        return pnlPlaceholder;
-        //    }
-        //    set
-        //    {
-        //        pnlPlaceholder = value;
-        //    }
-        //}
 
         
 
@@ -69,11 +57,7 @@ namespace UI_BenhVien.Forms
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            //instance = this;
-            //uc_admin ucadmin = new uc_admin();
-            //ucadmin.dock = dockstyle.fill;
-            //pnlplaceholder.controls.add(ucadmin);
-            //pnlplaceholder.controls["uc_admin"].bringtofront();
+            
             #region effect
             
             btnAdmin.BackColor = Color.SeaGreen;
@@ -96,11 +80,7 @@ namespace UI_BenhVien.Forms
 
         private void btnAuthor_Click(object sender, EventArgs e)
         {
-            //instance = this;
-            //UC_Author ucAuthor = new UC_Author();
-            //ucAuthor.Dock = DockStyle.Fill;
-            //pnlPlaceholder.Controls.Add(ucAuthor);
-            //pnlPlaceholder.Controls["UC_Author"].BringToFront();
+            
             #region effect
             
             btnAuthor.BackColor = Color.SeaGreen;

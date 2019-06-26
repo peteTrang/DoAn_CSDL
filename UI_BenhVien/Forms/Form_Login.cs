@@ -13,6 +13,7 @@ namespace UI_BenhVien
 {
     public partial class Form_Login : Form
     {
+        public static string DisplayName = String.Empty;
         public Form_Login()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace UI_BenhVien
                          select user).FirstOrDefault();
                 if(a != null)
                 {
+                    DisplayName = a.tenhienthi;
                     this.Hide();
                     Form_Menu form_Menu = new Form_Menu();
                     form_Menu.ShowDialog();

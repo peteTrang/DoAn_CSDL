@@ -35,6 +35,7 @@
             this.pnlShow = new System.Windows.Forms.Panel();
             this.uC_Info1 = new UI_BenhVien.UserControls.UC_Info();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlShow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Green;
-            this.btnSearch.Location = new System.Drawing.Point(418, 7);
+            this.btnSearch.Location = new System.Drawing.Point(398, 10);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(84, 30);
@@ -84,9 +85,9 @@
             this.cbObject.Items.AddRange(new object[] {
             "Bác sỹ",
             "Bệnh nhân"});
-            this.cbObject.Location = new System.Drawing.Point(326, 13);
+            this.cbObject.Location = new System.Drawing.Point(306, 13);
             this.cbObject.Name = "cbObject";
-            this.cbObject.Size = new System.Drawing.Size(89, 24);
+            this.cbObject.Size = new System.Drawing.Size(89, 26);
             this.cbObject.TabIndex = 7;
             // 
             // pnlShow
@@ -103,6 +104,7 @@
             this.uC_Info1.AutoScroll = true;
             this.uC_Info1.BackColor = System.Drawing.Color.White;
             this.uC_Info1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Info1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uC_Info1.Name = "uC_Info1";
             this.uC_Info1.Size = new System.Drawing.Size(509, 73);
             this.uC_Info1.TabIndex = 0;
@@ -117,10 +119,21 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(476, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 37);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UC_Action
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlShow);
             this.Controls.Add(this.cbObject);
@@ -139,8 +152,9 @@
         private System.Windows.Forms.Button btnSearch;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txbSearch;
         private System.Windows.Forms.ComboBox cbObject;
-        private System.Windows.Forms.Panel pnlShow;
+        public System.Windows.Forms.Panel pnlShow;
         private UC_Info uC_Info1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
