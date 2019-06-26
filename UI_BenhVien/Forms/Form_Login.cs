@@ -28,10 +28,23 @@ namespace UI_BenhVien
         }
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form_Menu form_Menu = new Form_Menu();
-            form_Menu.ShowDialog();
-            this.Show();
+            using(QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext())
+            {
+                var a = (from user in db.accounts
+                         where txbPassword.Text == user.password && txbUsername.Text == user.usernamme
+                         select user).FirstOrDefault();
+                if(a != null)
+                {
+                    this.Hide();
+                    Form_Menu form_Menu = new Form_Menu();
+                    form_Menu.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Mật khẩu hoặc tên tài khoản sai", "Thông báo");
+                }
+            }
         }
         #region effect
         private void btnSignIn_MouseEnter(object sender, EventArgs e)
@@ -82,5 +95,9 @@ namespace UI_BenhVien
             form_signup.ShowDialog();
         }
 
+        private void txbUsername_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

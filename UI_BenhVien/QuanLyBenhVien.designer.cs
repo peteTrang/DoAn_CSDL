@@ -30,6 +30,9 @@ namespace UI_BenhVien
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void Insertaccount(account instance);
+    partial void Updateaccount(account instance);
+    partial void Deleteaccount(account instance);
     partial void InsertBenhLy(BenhLy instance);
     partial void UpdateBenhLy(BenhLy instance);
     partial void DeleteBenhLy(BenhLy instance);
@@ -51,13 +54,10 @@ namespace UI_BenhVien
     partial void InsertNhanVien(NhanVien instance);
     partial void UpdateNhanVien(NhanVien instance);
     partial void DeleteNhanVien(NhanVien instance);
-    partial void Insertaccount(account instance);
-    partial void Updateaccount(account instance);
-    partial void Deleteaccount(account instance);
     #endregion
 		
 		public QuanLyBenhVienDataContext() : 
-				base(global::UI_BenhVien.Properties.Settings.Default.QUANLYBENHVIENConnectionString, mappingSource)
+				base(global::UI_BenhVien.Properties.Settings.Default.QUANLYBENHVIENConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -84,6 +84,14 @@ namespace UI_BenhVien
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<account> accounts
+		{
+			get
+			{
+				return this.GetTable<account>();
+			}
 		}
 		
 		public System.Data.Linq.Table<BenhLy> BenhLies
@@ -149,12 +157,138 @@ namespace UI_BenhVien
 				return this.GetTable<NhanVien>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.account")]
+	public partial class account : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<account> accounts
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _usernamme;
+		
+		private string _password;
+		
+		private string _tenhienthi;
+		
+		private bool _admin;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnusernammeChanging(string value);
+    partial void OnusernammeChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OntenhienthiChanging(string value);
+    partial void OntenhienthiChanged();
+    partial void OnadminChanging(bool value);
+    partial void OnadminChanged();
+    #endregion
+		
+		public account()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usernamme", DbType="VarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string usernamme
 		{
 			get
 			{
-				return this.GetTable<account>();
+				return this._usernamme;
+			}
+			set
+			{
+				if ((this._usernamme != value))
+				{
+					this.OnusernammeChanging(value);
+					this.SendPropertyChanging();
+					this._usernamme = value;
+					this.SendPropertyChanged("usernamme");
+					this.OnusernammeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenhienthi", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string tenhienthi
+		{
+			get
+			{
+				return this._tenhienthi;
+			}
+			set
+			{
+				if ((this._tenhienthi != value))
+				{
+					this.OntenhienthiChanging(value);
+					this.SendPropertyChanging();
+					this._tenhienthi = value;
+					this.SendPropertyChanged("tenhienthi");
+					this.OntenhienthiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_admin", DbType="Bit NOT NULL")]
+		public bool admin
+		{
+			get
+			{
+				return this._admin;
+			}
+			set
+			{
+				if ((this._admin != value))
+				{
+					this.OnadminChanging(value);
+					this.SendPropertyChanging();
+					this._admin = value;
+					this.SendPropertyChanged("admin");
+					this.OnadminChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1366,140 +1500,6 @@ namespace UI_BenhVien
 						this._TenKhoa = default(string);
 					}
 					this.SendPropertyChanged("Khoa");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.account")]
-	public partial class account : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _usernamme;
-		
-		private string _password;
-		
-		private string _tenhienthi;
-		
-		private bool _admin;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnusernammeChanging(string value);
-    partial void OnusernammeChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void OntenhienthiChanging(string value);
-    partial void OntenhienthiChanged();
-    partial void OnadminChanging(bool value);
-    partial void OnadminChanged();
-    #endregion
-		
-		public account()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usernamme", DbType="VarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string usernamme
-		{
-			get
-			{
-				return this._usernamme;
-			}
-			set
-			{
-				if ((this._usernamme != value))
-				{
-					this.OnusernammeChanging(value);
-					this.SendPropertyChanging();
-					this._usernamme = value;
-					this.SendPropertyChanged("usernamme");
-					this.OnusernammeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenhienthi", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string tenhienthi
-		{
-			get
-			{
-				return this._tenhienthi;
-			}
-			set
-			{
-				if ((this._tenhienthi != value))
-				{
-					this.OntenhienthiChanging(value);
-					this.SendPropertyChanging();
-					this._tenhienthi = value;
-					this.SendPropertyChanged("tenhienthi");
-					this.OntenhienthiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_admin", DbType="Bit NOT NULL")]
-		public bool admin
-		{
-			get
-			{
-				return this._admin;
-			}
-			set
-			{
-				if ((this._admin != value))
-				{
-					this.OnadminChanging(value);
-					this.SendPropertyChanging();
-					this._admin = value;
-					this.SendPropertyChanged("admin");
-					this.OnadminChanged();
 				}
 			}
 		}
