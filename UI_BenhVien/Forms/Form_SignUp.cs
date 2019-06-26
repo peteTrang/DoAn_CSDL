@@ -45,7 +45,7 @@ namespace UI_BenhVien.Forms
             //code
 
             // effect
-            bool b = false; // condition to be succeed or fail
+            bool b = true; // condition to be succeed or fail
             if (b)
             {
                 ptbMessage.Image = global::UI_BenhVien.Properties.Resources.icons8_checkmark_filled_50;

@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class2.cs" />
     <Compile Include="Forms\Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +95,12 @@
     <Compile Include="UserControls\UC_Author.Designer.cs">
       <DependentUpon>UC_Author.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UC_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_Info.Designer.cs">
+      <DependentUpon>UC_Info.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +120,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\UC_Info.resx">
+      <DependentUpon>UC_Info.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="QuanLyBenhVien.dbml.layout">
       <DependentUpon>QuanLyBenhVien.dbml</DependentUpon>
     </None>
@@ -165,6 +173,7 @@
     <Content Include="Images\icons8-treatment-50 %281%29.png" />
     <Content Include="Images\icons8-treatment-50.png" />
     <Content Include="Images\icons8-treatment-64.png" />
+    <None Include="Images\icons8-user-50.png" />
     <Content Include="Images\icons8-web-design-50.png" />
     <Content Include="Images\icons8-xbox-cross-filled-50 %28white%29.png" />
     <Content Include="Images\icons8-xbox-cross-filled-50.png" />

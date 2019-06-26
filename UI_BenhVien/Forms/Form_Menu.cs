@@ -59,11 +59,11 @@ namespace UI_BenhVien.Forms
             btnAuthor.BackColor = Color.PaleGreen;
             btnAuthor.ForeColor = Color.Gray;
             // Hide and show User Controls
-            if (ucAdmin.Visible == true)
-                transition2.HideSync(ucAdmin);
-            else if (ucAuthor.Visible == true)
-                transition2.HideSync(ucAuthor);
-            transition.ShowSync(ucAction);
+            //if (ucAdmin.Visible == true)
+            //    transition2.HideSync(ucAdmin);
+            //else if (ucAuthor.Visible == true)
+            //    transition2.HideSync(ucAuthor);
+            //transition.ShowSync(ucAction);
             #endregion
         }
 
@@ -85,11 +85,11 @@ namespace UI_BenhVien.Forms
             btnAction.BackColor = Color.PaleGreen;
             btnAction.ForeColor = Color.Gray;
             // hide and show User Controls
-            if (ucAction.Visible == true)
-                transition2.HideSync(ucAction);
-            else if (ucAuthor.Visible == true)
-                transition2.HideSync(ucAuthor);
-            transition.ShowSync(ucAdmin);
+            //if (ucAction.Visible == true)
+            //    transition2.HideSync(ucAction);
+            //else if (ucAuthor.Visible == true)
+            //    transition2.HideSync(ucAuthor);
+            //transition.ShowSync(ucAdmin);
             
             #endregion
         }
@@ -113,11 +113,11 @@ namespace UI_BenhVien.Forms
             btnAdmin.ForeColor = Color.Gray;
             //
             // Hide and show User Controls
-            if (ucAction.Visible == true)
-                transition2.HideSync(ucAction);
-            else if (ucAdmin.Visible == true)
-                transition2.HideSync(ucAdmin);
-            transition.ShowSync(ucAuthor);
+            //if (ucAction.Visible == true)
+            //    transition2.HideSync(ucAction);
+            //else if (ucAdmin.Visible == true)
+            //    transition2.HideSync(ucAdmin);
+            //transition.ShowSync(ucAuthor);
             
             #endregion
         }
