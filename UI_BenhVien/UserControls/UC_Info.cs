@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI_BenhVien.Forms;
+using System.Data.Linq.SqlClient;
 
 namespace UI_BenhVien.UserControls
 {
     public partial class UC_Info : UserControl
     {
         private static int _dem1;
+        private static int cbindex;
         public bool delete;
 
 
@@ -37,6 +39,19 @@ namespace UI_BenhVien.UserControls
             }
         }
 
+        public static int Cbindex
+        {
+            get
+            {
+                return cbindex;
+            }
+
+            set
+            {
+                cbindex = value;
+            }
+        }
+
         public void btnDelete_Click(object sender, EventArgs e)
         {
             delete = true;
@@ -44,25 +59,36 @@ namespace UI_BenhVien.UserControls
             UC_Action hao = (UC_Action)this.Parent.Parent;
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext())
             {
-                var a = (from bnhan in db.BenhNhans
-                        where bnhan.MaBN.ToString() == this.txbID.Text
-                        select bnhan).FirstOrDefault();
-                db.BenhNhans.DeleteOnSubmit(a);
-                db.SubmitChanges();
+                if (cbindex == 1)
+                {
+                    var a = (from bnhan in db.BenhNhans
+                             where bnhan.MaBN.ToString() == this.txbID.Text
+                             select bnhan).FirstOrDefault();
+                    db.BenhNhans.DeleteOnSubmit(a);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    var a = (from bsy in db.NhanViens
+                             where bsy.MaNV.ToString() == this.txbID.Text
+                             select bsy).FirstOrDefault();
+                    db.NhanViens.DeleteOnSubmit(a);
+                    db.SubmitChanges();
+                }
             }
             hao.DisplayResult(Dem1);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = false;
+            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = false;
             btnSave.Visible = true;
             btnEdit.Visible = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = false;
+            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = true;
             btnEdit.Visible = true;
             btnSave.Visible = false;
         }
