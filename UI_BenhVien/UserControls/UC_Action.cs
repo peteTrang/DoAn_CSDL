@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Linq.SqlClient;
 
 namespace UI_BenhVien.UserControls
 {
@@ -41,19 +42,41 @@ namespace UI_BenhVien.UserControls
             // Them ket qua tim kiem
             
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext()) {
-                var search = from bnhan in db.BenhNhans
-                        where bnhan.HotenBN == txbSearch.Text
-                        select bnhan;
-                UC_Info.Dem1 = search.Count();
-                ucInfos = new List<UC_Info> { };
-                foreach(var bnhansearch in search)
+                if (cbObject.SelectedIndex == 1)
                 {
-                    UC_Info uc_info = new UC_Info();
-                    uc_info.txbName.Text = bnhansearch.HotenBN;
-                    uc_info.txbID.Text = bnhansearch.MaBN.ToString();
-                    ucInfos.Add(uc_info);
+                    var search = from bnhan in db.BenhNhans
+                                 where SqlMethods.Like(bnhan.HotenBN, "%" + txbSearch.Text + "%")
+                                 select bnhan;
+                    UC_Info.Dem1 = search.Count();
+                    UC_Info.Cbindex = cbObject.SelectedIndex;
+                    ucInfos = new List<UC_Info> { };
+                    foreach (var bnhansearch in search)
+                    {
+                        UC_Info uc_info = new UC_Info();
+                        uc_info.txbName.Text = bnhansearch.HotenBN;
+                        uc_info.txbID.Text = bnhansearch.MaBN.ToString();
+                        ucInfos.Add(uc_info);
+                    }
+                    DisplayResult(search.Count());
                 }
-                DisplayResult(search.Count());
+                else
+                {
+                    var search = from bsy in db.NhanViens
+                                 where SqlMethods.Like(bsy.HotenNV, "%" + txbSearch.Text + "%")
+                                 select bsy;
+                    UC_Info.Dem1 = search.Count();
+                    UC_Info.Cbindex = cbObject.SelectedIndex;
+                    ucInfos = new List<UC_Info> { };
+                    foreach (var bsysearch in search)
+                    {
+                        UC_Info uc_info = new UC_Info();
+                        uc_info.txbName.Text = bsysearch.HotenNV;
+                        uc_info.txbID.Text = bsysearch.MaNV.ToString();
+                        ucInfos.Add(uc_info);
+                    }
+                    DisplayResult(search.Count());
+                }
+               
             }
            
 
@@ -90,6 +113,11 @@ namespace UI_BenhVien.UserControls
         private void txbSearch_OnValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbObject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(sender, e);
         }
     }
 
