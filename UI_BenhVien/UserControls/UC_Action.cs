@@ -147,6 +147,11 @@ namespace UI_BenhVien.UserControls
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void cbObject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(sender, e);
+        }
     }
 
 }

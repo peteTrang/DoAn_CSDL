@@ -81,16 +81,42 @@ namespace UI_BenhVien.UserControls
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = false;
+            txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = false;
             btnSave.Visible = true;
             btnEdit.Visible = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = true;
+            txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = true;
             btnEdit.Visible = true;
             btnSave.Visible = false;
+            using(QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext())
+            {
+                if(cbindex == 1)
+                {
+                    var a = (from bnhan in db.BenhNhans
+                             where bnhan.MaBN.ToString() == this.txbID.Text
+                             select bnhan).FirstOrDefault();
+                    a.HotenBN = txbName.Text;
+                    a.NgaySinh = DateTime.ParseExact(textBox1.Text, "dd.MM.yyyy",null);
+                    a.Diachi = textBox2.Text;
+                    a.GioiTinh = (textBox3.Text == "Nam") ? true : false;
+                    a.MaBenh = Convert.ToInt32(textBox4.Text);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    var a = (from bsy in db.NhanViens
+                             where bsy.MaNV.ToString() == this.txbID.Text
+                             select bsy).FirstOrDefault();
+                    a.HotenNV = txbName.Text;
+                    a.ChucDanh = textBox1.Text;
+                    a.TenKhoa = textBox2.Text;
+                    a.MaChuyenNganh = Convert.ToInt32(textBox3.Text);
+                    db.SubmitChanges();
+                }
+            }
         }
     }
 }
