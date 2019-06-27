@@ -72,6 +72,7 @@ namespace UI_BenhVien.UserControls
             this.txbSearch.Size = new System.Drawing.Size(219, 33);
             this.txbSearch.TabIndex = 5;
             this.txbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbSearch.OnValueChanged += new System.EventHandler(this.txbSearch_OnValueChanged);
             // 
             // cbObject
             // 
@@ -86,7 +87,7 @@ namespace UI_BenhVien.UserControls
             "Bệnh nhân"});
             this.cbObject.Location = new System.Drawing.Point(306, 13);
             this.cbObject.Name = "cbObject";
-            this.cbObject.Size = new System.Drawing.Size(89, 26);
+            this.cbObject.Size = new System.Drawing.Size(89, 24);
             this.cbObject.TabIndex = 7;
             // 
             // pnlShow

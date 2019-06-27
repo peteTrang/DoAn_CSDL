@@ -41,20 +41,20 @@ namespace UI_BenhVien.UserControls
             // Them ket qua tim kiem
             
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext()) {
-                /*var a = from user in db.accounts
-                        where user.admin == false
-                        select user;
-                a.Count();*/
-                
-                UC_Info.Dem1 = a;
+                var a = from bnhan in db.BenhNhans
+                        where bnhan.HotenBN == txbSearch.Text
+                        select bnhan;
+                UC_Info.Dem1 = a.Count();
                 ucInfos = new List<UC_Info> { };
-                for (int i = 0; i < a; i++)
+                int i = 0;
+                foreach(var bnhansearch in a)
                 {
                     UC_Info uc_info = new UC_Info();
                     uc_info.txbName.Text = "Nguoi so " + i.ToString();
                     ucInfos.Add(uc_info);
+                    i = i + 1;
                 }
-                DisplayResult(a);
+                DisplayResult(a.Count());
             }
            
 
@@ -87,6 +87,10 @@ namespace UI_BenhVien.UserControls
             }
         }
 
+        private void txbSearch_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
