@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI_BenhVien.Forms;
 
 namespace UI_BenhVien.UserControls
 {
@@ -15,7 +16,7 @@ namespace UI_BenhVien.UserControls
         private static int _dem1;
         public bool delete;
 
-        
+        public static int Dem1 { get => _dem1; set => _dem1 = value; }
 
         public UC_Info()
         {
@@ -24,28 +25,22 @@ namespace UI_BenhVien.UserControls
 
         }
 
-        public static int Dem1
-        {
-            get
-            {
-                return _dem1;
-            }
-
-            set
-            {
-                _dem1 = value;
-            }
-        }
-
         public void btnDelete_Click(object sender, EventArgs e)
         {
-            //delete = true;
-            UC_Action.Instace.pnlShow.Controls.Clear();
-            Dem1 = Dem1 - 1;
-            UC_Action hao = new UC_Action();
-            if(Dem1 > 0)
-            hao.DisplayResult(Dem1);
-            UC_Action.Instace.pnlShow.Update();
+            delete = true;
+            //UC_Action.Instace.pnlShow = new Panel();
+            _dem1 = _dem1 - 1;
+            //int c = UC_Action.ucInfos.Count;
+            UC_Action hao = (UC_Action)this.Parent.Parent;
+            //var a = this.Parent.Parent;
+            hao.DisplayResult(_dem1);
+            //UC_Action.Instace.pnlShow.Refresh();
+            //txbID
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

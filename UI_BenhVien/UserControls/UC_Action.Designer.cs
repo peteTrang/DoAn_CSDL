@@ -1,4 +1,6 @@
-﻿namespace UI_BenhVien.UserControls
+﻿using System.Collections.Generic;
+
+namespace UI_BenhVien.UserControls
 {
     partial class UC_Action
     {
@@ -33,10 +35,7 @@
             this.txbSearch = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.cbObject = new System.Windows.Forms.ComboBox();
             this.pnlShow = new System.Windows.Forms.Panel();
-            this.uC_Info1 = new UI_BenhVien.UserControls.UC_Info();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pnlShow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,28 +86,16 @@
             "Bệnh nhân"});
             this.cbObject.Location = new System.Drawing.Point(306, 13);
             this.cbObject.Name = "cbObject";
-            this.cbObject.Size = new System.Drawing.Size(89, 24);
+            this.cbObject.Size = new System.Drawing.Size(89, 26);
             this.cbObject.TabIndex = 7;
             // 
             // pnlShow
             // 
             this.pnlShow.AutoScroll = true;
-            this.pnlShow.Controls.Add(this.uC_Info1);
             this.pnlShow.Location = new System.Drawing.Point(0, 56);
             this.pnlShow.Name = "pnlShow";
             this.pnlShow.Size = new System.Drawing.Size(529, 358);
             this.pnlShow.TabIndex = 8;
-            this.pnlShow.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlShow_Paint);
-            // 
-            // uC_Info1
-            // 
-            this.uC_Info1.AutoScroll = true;
-            this.uC_Info1.BackColor = System.Drawing.Color.White;
-            this.uC_Info1.Location = new System.Drawing.Point(3, 3);
-            this.uC_Info1.Margin = new System.Windows.Forms.Padding(4);
-            this.uC_Info1.Name = "uC_Info1";
-            this.uC_Info1.Size = new System.Drawing.Size(509, 73);
-            this.uC_Info1.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -120,21 +107,10 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(476, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 37);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // UC_Action
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlShow);
             this.Controls.Add(this.cbObject);
@@ -143,7 +119,6 @@
             this.Location = new System.Drawing.Point(240, 0);
             this.Name = "UC_Action";
             this.Size = new System.Drawing.Size(530, 415);
-            this.pnlShow.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -154,8 +129,7 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txbSearch;
         private System.Windows.Forms.ComboBox cbObject;
         public System.Windows.Forms.Panel pnlShow;
-        private UC_Info uC_Info1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        public static List<UC_Info> uc_Infos;
     }
 }
