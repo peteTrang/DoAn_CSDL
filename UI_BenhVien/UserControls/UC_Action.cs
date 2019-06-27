@@ -23,7 +23,18 @@ namespace UI_BenhVien.UserControls
             set { _instace = value; }
         }
 
-        public int Dem { get => dem; set => dem = value; }
+        public int Dem
+        {
+            get
+            {
+                return dem;
+            }
+
+            set
+            {
+                dem = value;
+            }
+        }
 
         static List<UC_Info> ucInfos;
 
@@ -84,6 +95,11 @@ namespace UI_BenhVien.UserControls
         {
             //   DisplayResult(a);
             pnlShow.Controls.Clear();
+        }
+
+        private void pnlShow_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //private UC_Info uci = new UC_Info();

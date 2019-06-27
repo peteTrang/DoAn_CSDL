@@ -87,7 +87,7 @@
             "Bệnh nhân"});
             this.cbObject.Location = new System.Drawing.Point(306, 13);
             this.cbObject.Name = "cbObject";
-            this.cbObject.Size = new System.Drawing.Size(89, 26);
+            this.cbObject.Size = new System.Drawing.Size(89, 24);
             this.cbObject.TabIndex = 7;
             // 
             // pnlShow
@@ -98,13 +98,14 @@
             this.pnlShow.Name = "pnlShow";
             this.pnlShow.Size = new System.Drawing.Size(529, 358);
             this.pnlShow.TabIndex = 8;
+            this.pnlShow.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlShow_Paint);
             // 
             // uC_Info1
             // 
             this.uC_Info1.AutoScroll = true;
             this.uC_Info1.BackColor = System.Drawing.Color.White;
             this.uC_Info1.Location = new System.Drawing.Point(3, 3);
-            this.uC_Info1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uC_Info1.Margin = new System.Windows.Forms.Padding(4);
             this.uC_Info1.Name = "uC_Info1";
             this.uC_Info1.Size = new System.Drawing.Size(509, 73);
             this.uC_Info1.TabIndex = 0;

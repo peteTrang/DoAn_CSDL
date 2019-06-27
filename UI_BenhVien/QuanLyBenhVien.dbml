@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QUANLYBENHVIEN" Class="QuanLyBenhVienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=TRUONG;Initial Catalog=QUANLYBENHVIEN;Integrated Security=True" SettingsObjectName="UI_BenhVien.Properties.Settings" SettingsPropertyName="QUANLYBENHVIENConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.account" Member="accounts">
-    <Type Name="account">
-      <Column Name="usernamme" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="tenhienthi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=lulu\sqlexpress;Initial Catalog=QUANLYBENHVIEN;Integrated Security=True" SettingsObjectName="UI_BenhVien.Properties.Settings" SettingsPropertyName="QUANLYBENHVIENConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BenhLy" Member="BenhLies">
     <Type Name="BenhLy">
       <Column Name="MaBenh" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenBenh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="BenhLy_BenhNhan" Member="BenhNhans" ThisKey="MaBenh" OtherKey="MaBenh" Type="BenhNhan" />
       <Association Name="BenhLy_DieuTri" Member="DieuTris" ThisKey="MaBenh" OtherKey="MaBenh" Type="DieuTri" />
+    </Type>
+  </Table>
+  <Table Name="dbo.account" Member="accounts">
+    <Type Name="account">
+      <Column Name="usernamme" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="tenhienthi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.BenhNhan" Member="BenhNhans">
@@ -52,12 +52,15 @@
       <Association Name="Khoa_GiuongBenh" Member="Khoa" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="Khoa" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Khoa" Member="Khoas">
-    <Type Name="Khoa">
-      <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Khoa_DieuTri" Member="DieuTris" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="DieuTri" />
-      <Association Name="Khoa_GiuongBenh" Member="GiuongBenhs" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="GiuongBenh" />
-      <Association Name="Khoa_NhanVien" Member="NhanViens" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="NhanVien" />
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HotenNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChucDanh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaChuyenNganh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ChuyenNganh_NhanVien" Member="ChuyenNganh" ThisKey="MaChuyenNganh" OtherKey="MaChuyenNganh" Type="ChuyenNganh" IsForeignKey="true" />
+      <Association Name="Khoa_NhanVien" Member="Khoa" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="Khoa" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.NguoiNha" Member="NguoiNhas">
@@ -69,15 +72,12 @@
       <Association Name="BenhNhan_NguoiNha" Member="BenhNhan" ThisKey="MaBN" OtherKey="MaBN" Type="BenhNhan" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.NhanVien" Member="NhanViens">
-    <Type Name="NhanVien">
-      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="HotenNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ChucDanh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MaChuyenNganh" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="ChuyenNganh_NhanVien" Member="ChuyenNganh" ThisKey="MaChuyenNganh" OtherKey="MaChuyenNganh" Type="ChuyenNganh" IsForeignKey="true" />
-      <Association Name="Khoa_NhanVien" Member="Khoa" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="Khoa" IsForeignKey="true" />
+  <Table Name="dbo.Khoa" Member="Khoas">
+    <Type Name="Khoa">
+      <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Khoa_DieuTri" Member="DieuTris" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="DieuTri" />
+      <Association Name="Khoa_GiuongBenh" Member="GiuongBenhs" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="GiuongBenh" />
+      <Association Name="Khoa_NhanVien" Member="NhanViens" ThisKey="TenKhoa" OtherKey="TenKhoa" Type="NhanVien" />
     </Type>
   </Table>
 </Database>
