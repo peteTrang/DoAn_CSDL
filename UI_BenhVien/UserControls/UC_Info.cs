@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI_BenhVien.Forms;
 
 namespace UI_BenhVien.UserControls
 {
@@ -26,13 +27,20 @@ namespace UI_BenhVien.UserControls
 
         public void btnDelete_Click(object sender, EventArgs e)
         {
-            //delete = true;
-            UC_Action.Instace.pnlShow.Controls.Clear();
+            delete = true;
+            //UC_Action.Instace.pnlShow = new Panel();
             _dem1 = _dem1 - 1;
-            UC_Action hao = new UC_Action();
-            if(_dem1 > 0)
+            //int c = UC_Action.ucInfos.Count;
+            UC_Action hao = (UC_Action)this.Parent.Parent;
+            //var a = this.Parent.Parent;
             hao.DisplayResult(_dem1);
-            UC_Action.Instace.pnlShow.Update();
+            //UC_Action.Instace.pnlShow.Refresh();
+            //txbID
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
