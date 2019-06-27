@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Linq.SqlClient;
 
 namespace UI_BenhVien.UserControls
 {
@@ -32,17 +33,18 @@ namespace UI_BenhVien.UserControls
         {
             InitializeComponent();
             ucInfos = new List<UC_Info> { };
-            //ucInfos.Add(uC_Info1);
+            cbObject.SelectedIndex = 0;
             
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            string a = cbObject.SelectedItem.ToString();
 
             // Them ket qua tim kiem
             
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext()) {
                 var search = from bnhan in db.BenhNhans
-                        where bnhan.HotenBN == txbSearch.Text
+                        where SqlMethods.Like(bnhan.HotenBN, "%" + txbSearch.Text + "%")
                         select bnhan;
                 UC_Info.Dem1 = search.Count();
                 ucInfos = new List<UC_Info> { };
@@ -51,6 +53,10 @@ namespace UI_BenhVien.UserControls
                     UC_Info uc_info = new UC_Info();
                     uc_info.txbName.Text = bnhansearch.HotenBN;
                     uc_info.txbID.Text = bnhansearch.MaBN.ToString();
+                    uc_info.label1.Text = "Địa chỉ:";
+                    uc_info.textBox1.Text = bnhansearch.Diachi;
+                    uc_info.label2.Text = "Bệnh";
+                    uc_info.textBox2.Text = bnhansearch.MaBenh.ToString();
                     ucInfos.Add(uc_info);
                 }
                 DisplayResult(search.Count());
@@ -80,16 +86,21 @@ namespace UI_BenhVien.UserControls
                     ucInfos[i].Size = new System.Drawing.Size(509, 73);
                     ucInfos[i].Name = "uC_Info" + i.ToString();
                     ucInfos[i].TabIndex = 3;
-                    //ucInfos[i].txbID.Text = 
                     pnlShow.Controls.Add(ucInfos[i]);
                 }
                
             }
         }
 
-        private void txbSearch_OnValueChanged(object sender, EventArgs e)
+        // make accept button for this User Control
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-
+            if (keyData == Keys.Enter)
+            {
+                btnSearch.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 

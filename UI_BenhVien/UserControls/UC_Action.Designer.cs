@@ -36,6 +36,7 @@ namespace UI_BenhVien.UserControls
             this.cbObject = new System.Windows.Forms.ComboBox();
             this.pnlShow = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@ namespace UI_BenhVien.UserControls
             this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(84, 30);
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -70,14 +71,14 @@ namespace UI_BenhVien.UserControls
             this.txbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txbSearch.Name = "txbSearch";
             this.txbSearch.Size = new System.Drawing.Size(219, 33);
-            this.txbSearch.TabIndex = 5;
+            this.txbSearch.TabIndex = 0;
             this.txbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txbSearch.OnValueChanged += new System.EventHandler(this.txbSearch_OnValueChanged);
             // 
             // cbObject
             // 
             this.cbObject.AllowDrop = true;
             this.cbObject.BackColor = System.Drawing.Color.PaleGreen;
+            this.cbObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbObject.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbObject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -88,7 +89,7 @@ namespace UI_BenhVien.UserControls
             this.cbObject.Location = new System.Drawing.Point(306, 13);
             this.cbObject.Name = "cbObject";
             this.cbObject.Size = new System.Drawing.Size(89, 24);
-            this.cbObject.TabIndex = 7;
+            this.cbObject.TabIndex = 1;
             // 
             // pnlShow
             // 
@@ -108,10 +109,23 @@ namespace UI_BenhVien.UserControls
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Location = new System.Drawing.Point(487, 7);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(40, 40);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
             // UC_Action
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlShow);
             this.Controls.Add(this.cbObject);
@@ -132,5 +146,6 @@ namespace UI_BenhVien.UserControls
         public System.Windows.Forms.Panel pnlShow;
         private System.Windows.Forms.PictureBox pictureBox1;
         public static List<UC_Info> uc_Infos;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

@@ -40,11 +40,8 @@ namespace UI_BenhVien.UserControls
         public void btnDelete_Click(object sender, EventArgs e)
         {
             delete = true;
-            //UC_Action.Instace.pnlShow = new Panel();
             Dem1 = Dem1 - 1;
-            //int c = UC_Action.ucInfos.Count;
             UC_Action hao = (UC_Action)this.Parent.Parent;
-            //var a = this.Parent.Parent;
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext())
             {
                 var a = (from bnhan in db.BenhNhans
@@ -54,13 +51,20 @@ namespace UI_BenhVien.UserControls
                 db.SubmitChanges();
             }
             hao.DisplayResult(Dem1);
-            //UC_Action.Instace.pnlShow.Refresh();
-            //txbID           
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = false;
+            btnSave.Visible = true;
+            btnEdit.Visible = false;
+        }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = false;
+            btnEdit.Visible = true;
+            btnSave.Visible = false;
         }
     }
 }
