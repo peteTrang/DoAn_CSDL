@@ -41,20 +41,19 @@ namespace UI_BenhVien.UserControls
             // Them ket qua tim kiem
             
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext()) {
-                var a = from bnhan in db.BenhNhans
+                var search = from bnhan in db.BenhNhans
                         where bnhan.HotenBN == txbSearch.Text
                         select bnhan;
-                UC_Info.Dem1 = a.Count();
+                UC_Info.Dem1 = search.Count();
                 ucInfos = new List<UC_Info> { };
-                int i = 0;
-                foreach(var bnhansearch in a)
+                foreach(var bnhansearch in search)
                 {
                     UC_Info uc_info = new UC_Info();
-                    uc_info.txbName.Text = "Nguoi so " + i.ToString();
+                    uc_info.txbName.Text = bnhansearch.HotenBN;
+                    uc_info.txbID.Text = bnhansearch.MaBN.ToString();
                     ucInfos.Add(uc_info);
-                    i = i + 1;
                 }
-                DisplayResult(a.Count());
+                DisplayResult(search.Count());
             }
            
 
@@ -81,6 +80,7 @@ namespace UI_BenhVien.UserControls
                     ucInfos[i].Size = new System.Drawing.Size(509, 73);
                     ucInfos[i].Name = "uC_Info" + i.ToString();
                     ucInfos[i].TabIndex = 3;
+                    //ucInfos[i].txbID.Text = 
                     pnlShow.Controls.Add(ucInfos[i]);
                 }
                
