@@ -90,6 +90,7 @@ namespace UI_BenhVien.UserControls
             this.cbObject.Name = "cbObject";
             this.cbObject.Size = new System.Drawing.Size(89, 24);
             this.cbObject.TabIndex = 1;
+            this.cbObject.SelectedIndexChanged += new System.EventHandler(this.cbObject_SelectedIndexChanged);
             // 
             // pnlShow
             // 
