@@ -95,9 +95,25 @@ namespace UI_BenhVien.UserControls
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = false;
-            btnSave.Visible = true;
-            btnEdit.Visible = false;
+            if (tab == 2)
+            {
+                if (this.textBox4.Text == "True")
+                {
+                    MessageBox.Show("Không có quyền thực hiện thay đổi", "Cảnh cáo");
+                }
+                else
+                {
+                    txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = false;
+                    btnSave.Visible = true;
+                    btnEdit.Visible = false;
+                }
+            }
+            if (tab == 1)
+            {
+                txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = false;
+                btnSave.Visible = true;
+                btnEdit.Visible = false;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -134,18 +150,16 @@ namespace UI_BenhVien.UserControls
                     }
                 }
             }
-            if(tab == 2)
+            if (tab == 2)
             {
-                if(this.textBox4.Text == "True")
-                {
-                    MessageBox.Show("Không có quyền thực hiện thay đổi", "Cảnh cáo");
-                }
-                else
-                
-                {
-                    //var a = (from acc in D
-                    //         where bsy.MaNV.ToString() == this.txbID.Text
-                    //         select bsy).FirstOrDefault();
+                using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext()) {
+                    var a = (from acc in db.accounts
+                             where acc.usernamme == this.textBox1.Text
+                             select acc).FirstOrDefault();
+                    a.password = textBox2.Text;
+                    a.tenhienthi = textBox3.Text;
+                    a.admin = (textBox4.Text == "True") ? true : false;
+                    db.SubmitChanges();
                 }
             }
         }

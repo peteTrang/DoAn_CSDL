@@ -141,8 +141,6 @@ namespace UI_BenhVien.UserControls
                     DisplayResult(search.Count());
                 }
             }
-           
-
         }
         // hien thi toan bo ket qua tim kiem
         public void DisplayResult(int a)
