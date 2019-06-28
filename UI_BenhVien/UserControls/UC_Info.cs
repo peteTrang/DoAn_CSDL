@@ -81,14 +81,14 @@ namespace UI_BenhVien.UserControls
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = false;
+            txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = false;
             btnSave.Visible = true;
             btnEdit.Visible = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            txbID.ReadOnly = txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = true;
+            txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = true;
             btnEdit.Visible = true;
             btnSave.Visible = false;
         }
