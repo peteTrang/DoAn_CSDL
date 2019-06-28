@@ -46,6 +46,7 @@ namespace UI_BenhVien.UserControls
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext()) {
                 if (tb == 1)
                 {
+                    UC_Info.Tab = 1;
                     if (cbObject.SelectedIndex == 1)
                     {
                         var search = from bnhan in db.BenhNhans
@@ -111,6 +112,7 @@ namespace UI_BenhVien.UserControls
                 }
                 else if(tb == 2)
                 {
+                    UC_Info.Tab = 2;
                     var search = from acc in db.accounts
                                  where SqlMethods.Like(acc.usernamme, "%" + txbSearch.Text + "%")
                                  select acc;
@@ -120,7 +122,20 @@ namespace UI_BenhVien.UserControls
                     foreach (var accsearch in search)
                     {
                         UC_Info uc_info = new UC_Info();
-                        uc_info.txbName.Text = accsearch.usernamme;
+                        uc_info.txbID.Visible = uc_info.txbName.Visible = false;
+
+                        uc_info.label1.Text = "Username:";
+                        uc_info.textBox1.Text = accsearch.usernamme;
+
+                        uc_info.label2.Text = "Mật khẩu:";
+                        uc_info.textBox2.Text = accsearch.password;
+
+                        uc_info.label3.Text = "Tên hiển thị:";
+                        uc_info.textBox3.Text = accsearch.tenhienthi;
+
+                        uc_info.label4.Text = "Admin:";
+                        uc_info.textBox4.Text = accsearch.admin.ToString();
+
                         ucInfos.Add(uc_info);
                     }
                     DisplayResult(search.Count());

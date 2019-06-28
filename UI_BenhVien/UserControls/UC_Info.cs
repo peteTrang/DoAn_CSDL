@@ -62,20 +62,31 @@ namespace UI_BenhVien.UserControls
             UC_Action hao = (UC_Action)this.Parent.Parent;
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext())
             {
-                if (cbindex == 1)
+                if (tab == 1)
                 {
-                    var a = (from bnhan in db.BenhNhans
-                             where bnhan.MaBN.ToString() == this.txbID.Text
-                             select bnhan).FirstOrDefault();
-                    db.BenhNhans.DeleteOnSubmit(a);
-                    db.SubmitChanges();
+                    if (cbindex == 1)
+                    {
+                        var a = (from bnhan in db.BenhNhans
+                                 where bnhan.MaBN.ToString() == this.txbID.Text
+                                 select bnhan).FirstOrDefault();
+                        db.BenhNhans.DeleteOnSubmit(a);
+                        db.SubmitChanges();
+                    }
+                    else
+                    {
+                        var a = (from bsy in db.NhanViens
+                                 where bsy.MaNV.ToString() == this.txbID.Text
+                                 select bsy).FirstOrDefault();
+                        db.NhanViens.DeleteOnSubmit(a);
+                        db.SubmitChanges();
+                    }
                 }
-                else
+                if(tab == 2)
                 {
-                    var a = (from bsy in db.NhanViens
-                             where bsy.MaNV.ToString() == this.txbID.Text
-                             select bsy).FirstOrDefault();
-                    db.NhanViens.DeleteOnSubmit(a);
+                    var a = (from acc in db.accounts
+                             where acc.usernamme == this.textBox1.Text
+                             select acc).FirstOrDefault();
+                    db.accounts.DeleteOnSubmit(a);
                     db.SubmitChanges();
                 }
             }
@@ -91,33 +102,50 @@ namespace UI_BenhVien.UserControls
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = true;
-            btnEdit.Visible = true;
-            btnSave.Visible = false;
-            using(QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext())
+            if (tab == 1)
             {
-                if(cbindex == 1)
+                txbName.ReadOnly = textBox1.ReadOnly = textBox2.ReadOnly = textBox3.ReadOnly = textBox4.ReadOnly = true;
+                btnEdit.Visible = true;
+                btnSave.Visible = false;
+                using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext())
                 {
-                    var a = (from bnhan in db.BenhNhans
-                             where bnhan.MaBN.ToString() == this.txbID.Text
-                             select bnhan).FirstOrDefault();
-                    a.HotenBN = txbName.Text;
-                    a.NgaySinh = DateTime.ParseExact(textBox1.Text, "dd.MM.yyyy",null);
-                    a.Diachi = textBox2.Text;
-                    a.GioiTinh = (textBox3.Text == "Nam") ? true : false;
-                    a.MaBenh = Convert.ToInt32(textBox4.Text);
-                    db.SubmitChanges();
+                    if (cbindex == 1)
+                    {
+                        var a = (from bnhan in db.BenhNhans
+                                 where bnhan.MaBN.ToString() == this.txbID.Text
+                                 select bnhan).FirstOrDefault();
+                        a.HotenBN = txbName.Text;
+                        a.NgaySinh = DateTime.ParseExact(textBox1.Text, "dd.MM.yyyy", null);
+                        a.Diachi = textBox2.Text;
+                        a.GioiTinh = (textBox3.Text == "Nam") ? true : false;
+                        a.MaBenh = Convert.ToInt32(textBox4.Text);
+                        db.SubmitChanges();
+                    }
+                    else
+                    {
+                        var a = (from bsy in db.NhanViens
+                                 where bsy.MaNV.ToString() == this.txbID.Text
+                                 select bsy).FirstOrDefault();
+                        a.HotenNV = txbName.Text;
+                        a.ChucDanh = textBox1.Text;
+                        a.TenKhoa = textBox2.Text;
+                        a.MaChuyenNganh = Convert.ToInt32(textBox3.Text);
+                        db.SubmitChanges();
+                    }
+                }
+            }
+            if(tab == 2)
+            {
+                if(this.textBox4.Text == "True")
+                {
+                    MessageBox.Show("Không có quyền thực hiện thay đổi", "Cảnh cáo");
                 }
                 else
+                
                 {
-                    var a = (from bsy in db.NhanViens
-                             where bsy.MaNV.ToString() == this.txbID.Text
-                             select bsy).FirstOrDefault();
-                    a.HotenNV = txbName.Text;
-                    a.ChucDanh = textBox1.Text;
-                    a.TenKhoa = textBox2.Text;
-                    a.MaChuyenNganh = Convert.ToInt32(textBox3.Text);
-                    db.SubmitChanges();
+                    //var a = (from acc in D
+                    //         where bsy.MaNV.ToString() == this.txbID.Text
+                    //         select bsy).FirstOrDefault();
                 }
             }
         }
