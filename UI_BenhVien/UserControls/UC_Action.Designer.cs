@@ -143,7 +143,7 @@ namespace UI_BenhVien.UserControls
         #endregion
         private System.Windows.Forms.Button btnSearch;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txbSearch;
-        private System.Windows.Forms.ComboBox cbObject;
+        public System.Windows.Forms.ComboBox cbObject;
         public System.Windows.Forms.Panel pnlShow;
         private System.Windows.Forms.PictureBox pictureBox1;
         public static List<UC_Info> uc_Infos;

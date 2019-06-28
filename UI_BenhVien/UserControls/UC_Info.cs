@@ -17,7 +17,7 @@ namespace UI_BenhVien.UserControls
         private static int _dem1;
         private static int cbindex;
         public bool delete;
-
+        private static int tab;
 
         public UC_Info()
         {
@@ -52,8 +52,11 @@ namespace UI_BenhVien.UserControls
             }
         }
 
+        public static int Tab { get => tab; set => tab = value; }
+
         public void btnDelete_Click(object sender, EventArgs e)
         {
+
             delete = true;
             Dem1 = Dem1 - 1;
             UC_Action hao = (UC_Action)this.Parent.Parent;

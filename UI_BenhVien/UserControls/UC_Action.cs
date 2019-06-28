@@ -15,6 +15,7 @@ namespace UI_BenhVien.UserControls
         int a = 24;
         private static UC_Action _instace;
         private int dem;
+        private static int tb;
         public static UC_Action Instace {
             get
             {
@@ -25,6 +26,7 @@ namespace UI_BenhVien.UserControls
         }
 
         public int Dem { get => dem; set => dem = value; }
+        public static int Tb { get => tb; set => tb = value; }
 
         public static List<UC_Info> ucInfos;
 
@@ -42,68 +44,87 @@ namespace UI_BenhVien.UserControls
             // Them ket qua tim kiem
             
             using (QuanLyBenhVienDataContext db = new QuanLyBenhVienDataContext()) {
-                if (cbObject.SelectedIndex == 1)
+                if (tb == 1)
                 {
-                    var search = from bnhan in db.BenhNhans
-                                 where SqlMethods.Like(bnhan.HotenBN, "%" + txbSearch.Text + "%")
-                                 select bnhan;
+                    if (cbObject.SelectedIndex == 1)
+                    {
+                        var search = from bnhan in db.BenhNhans
+                                     where SqlMethods.Like(bnhan.HotenBN, "%" + txbSearch.Text + "%")
+                                     select bnhan;
+                        UC_Info.Dem1 = search.Count();
+                        UC_Info.Cbindex = cbObject.SelectedIndex;
+                        ucInfos = new List<UC_Info> { };
+
+                        foreach (var bnhansearch in search)
+                        {
+                            UC_Info uc_info = new UC_Info();
+                            uc_info.txbName.Text = bnhansearch.HotenBN;
+                            uc_info.txbID.Text = bnhansearch.MaBN.ToString();
+
+                            uc_info.label1.Text = "Ngày sinh:";
+                            uc_info.textBox1.Text = ((DateTime)bnhansearch.NgaySinh).ToString("dd.MM.yyyy");
+
+                            uc_info.label2.Text = "Địa chỉ:";
+                            uc_info.textBox2.Text = bnhansearch.Diachi;
+
+                            uc_info.label4.Visible = uc_info.textBox4.Visible = true;
+
+                            uc_info.label3.Text = "Giới tính:";
+                            uc_info.textBox3.Text = (bool)(bnhansearch.GioiTinh) ? "Nam" : "Nữ";
+
+                            uc_info.label4.Text = "Bệnh";
+                            uc_info.textBox4.Text = bnhansearch.MaBenh.ToString();
+
+                            ucInfos.Add(uc_info);
+                        }
+                        DisplayResult(search.Count());
+                    }
+                    else
+                    {
+                        var search = from bsy in db.NhanViens
+                                     where SqlMethods.Like(bsy.HotenNV, "%" + txbSearch.Text + "%")
+                                     select bsy;
+                        UC_Info.Dem1 = search.Count();
+                        UC_Info.Cbindex = cbObject.SelectedIndex;
+                        ucInfos = new List<UC_Info> { };
+                        foreach (var bsysearch in search)
+                        {
+                            UC_Info uc_info = new UC_Info();
+                            uc_info.txbName.Text = bsysearch.HotenNV;
+                            uc_info.txbID.Text = bsysearch.MaNV.ToString();
+
+                            uc_info.label1.Text = "Chức danh:";
+                            uc_info.textBox1.Text = bsysearch.ChucDanh;
+
+                            uc_info.label2.Text = "Tên khoa:";
+                            uc_info.textBox2.Text = bsysearch.TenKhoa;
+
+                            uc_info.label3.Text = "Mã chuyên ngành";
+                            uc_info.textBox3.Text = bsysearch.MaChuyenNganh.ToString();
+
+                            uc_info.label4.Visible = uc_info.textBox4.Visible = false;
+
+                            ucInfos.Add(uc_info);
+                        }
+                        DisplayResult(search.Count());
+                    }
+                }
+                else if(tb == 2)
+                {
+                    var search = from acc in db.accounts
+                                 where SqlMethods.Like(acc.usernamme, "%" + txbSearch.Text + "%")
+                                 select acc;
                     UC_Info.Dem1 = search.Count();
                     UC_Info.Cbindex = cbObject.SelectedIndex;
                     ucInfos = new List<UC_Info> { };
-                    foreach (var bnhansearch in search)
+                    foreach (var accsearch in search)
                     {
                         UC_Info uc_info = new UC_Info();
-                        uc_info.txbName.Text = bnhansearch.HotenBN;
-                        uc_info.txbID.Text = bnhansearch.MaBN.ToString();
-
-                        uc_info.label1.Text = "Ngày sinh:";
-                        uc_info.textBox1.Text = ((DateTime)bnhansearch.NgaySinh).ToString("dd.MM.yyyy");
-
-                        uc_info.label2.Text = "Địa chỉ:";
-                        uc_info.textBox2.Text = bnhansearch.Diachi;
-
-                        uc_info.label4.Visible = uc_info.textBox4.Visible = true;
-
-                        uc_info.label3.Text = "Giới tính:";
-                        uc_info.textBox3.Text = (bool)(bnhansearch.GioiTinh) ? "Nam" : "Nữ";
-
-                        uc_info.label4.Text = "Bệnh";
-                        uc_info.textBox4.Text = bnhansearch.MaBenh.ToString();
-
+                        uc_info.txbName.Text = accsearch.usernamme;
                         ucInfos.Add(uc_info);
                     }
                     DisplayResult(search.Count());
                 }
-                else
-                {
-                    var search = from bsy in db.NhanViens
-                                 where SqlMethods.Like(bsy.HotenNV, "%" + txbSearch.Text + "%")
-                                 select bsy;
-                    UC_Info.Dem1 = search.Count();
-                    UC_Info.Cbindex = cbObject.SelectedIndex;
-                    ucInfos = new List<UC_Info> { };
-                    foreach (var bsysearch in search)
-                    {
-                        UC_Info uc_info = new UC_Info();
-                        uc_info.txbName.Text = bsysearch.HotenNV;
-                        uc_info.txbID.Text = bsysearch.MaNV.ToString();
-
-                        uc_info.label1.Text = "Chức danh:";
-                        uc_info.textBox1.Text = bsysearch.ChucDanh;
-
-                        uc_info.label2.Text = "Tên khoa:";
-                        uc_info.textBox2.Text = bsysearch.TenKhoa;
-
-                        uc_info.label3.Text = "Mã chuyên ngành";
-                        uc_info.textBox3.Text = bsysearch.MaChuyenNganh.ToString();
-
-                        uc_info.label4.Visible = uc_info.textBox4.Visible = false;
-
-                        ucInfos.Add(uc_info);
-                    }
-                    DisplayResult(search.Count());
-                }
-               
             }
            
 

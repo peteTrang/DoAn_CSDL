@@ -12,11 +12,15 @@ using UI_BenhVien.UserControls;
 namespace UI_BenhVien.Forms
 {
     public partial class Form_Menu : Form
-    { 
+    {
+        //public bool admin = false;
         public Form_Menu()
         {
             InitializeComponent();
             lblHello.Text = Form_Login.DisplayName;
+            ucAdmin.cbObject.Visible = false;
+            btnAdmin.Enabled = Form_Login.admin;
+
         }
         private static Form_Menu instance;
         public static Form_Menu Instance
@@ -35,7 +39,7 @@ namespace UI_BenhVien.Forms
 
         private void btnAction_Click(object sender, EventArgs e)
         {
-            
+            UC_Action.Tb = 1;
             #region effect
 
             btnAction.BackColor = Color.SeaGreen;
@@ -47,17 +51,17 @@ namespace UI_BenhVien.Forms
             btnAuthor.BackColor = Color.PaleGreen;
             btnAuthor.ForeColor = Color.Gray;
             // Hide and show User Controls
-            //if (ucAdmin.Visible == true)
-            //    transition2.HideSync(ucAdmin);
-            //else if (ucAuthor.Visible == true)
-            //    transition2.HideSync(ucAuthor);
-            //transition.ShowSync(ucAction);
+            if (ucAdmin.Visible == true)
+                transition2.HideSync(ucAdmin);
+            else if (ucAuthor.Visible == true)
+                transition2.HideSync(ucAuthor);
+            transition.ShowSync(ucAction);
             #endregion
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            
+            UC_Action.Tb = 2;
             #region effect
             
             btnAdmin.BackColor = Color.SeaGreen;
@@ -69,12 +73,12 @@ namespace UI_BenhVien.Forms
             btnAction.BackColor = Color.PaleGreen;
             btnAction.ForeColor = Color.Gray;
             // hide and show User Controls
-            //if (ucAction.Visible == true)
-            //    transition2.HideSync(ucAction);
-            //else if (ucAuthor.Visible == true)
-            //    transition2.HideSync(ucAuthor);
-            //transition.ShowSync(ucAdmin);
-            
+            if (ucAction.Visible == true)
+                transition2.HideSync(ucAction);
+            else if (ucAuthor.Visible == true)
+                transition2.HideSync(ucAuthor);
+            transition.ShowSync(ucAdmin);
+
             #endregion
         }
 
@@ -93,12 +97,12 @@ namespace UI_BenhVien.Forms
             btnAdmin.ForeColor = Color.Gray;
             //
             // Hide and show User Controls
-            //if (ucAction.Visible == true)
-            //    transition2.HideSync(ucAction);
-            //else if (ucAdmin.Visible == true)
-            //    transition2.HideSync(ucAdmin);
-            //transition.ShowSync(ucAuthor);
-            
+            if (ucAction.Visible == true)
+                transition2.HideSync(ucAction);
+            else if (ucAdmin.Visible == true)
+                transition2.HideSync(ucAdmin);
+            transition.ShowSync(ucAuthor);
+
             #endregion
         }
 
