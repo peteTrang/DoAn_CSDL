@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Linq.SqlClient;
+using UI_BenhVien.Forms;
+
 namespace UI_BenhVien.UserControls
 {
     public partial class UC_Action : UserControl
@@ -122,7 +124,7 @@ namespace UI_BenhVien.UserControls
                     foreach (var accsearch in search)
                     {
                         UC_Info uc_info = new UC_Info();
-                        uc_info.txbID.Visible = uc_info.txbName.Visible = false;
+                        uc_info.txbID.Visible = uc_info.txbName.Visible = uc_info.txbID.Visible = uc_info.txbName.Visible = false;
 
                         uc_info.label1.Text = "Username:";
                         uc_info.textBox1.Text = accsearch.usernamme;
@@ -184,9 +186,10 @@ namespace UI_BenhVien.UserControls
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void cbObject_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            btnSearch_Click(sender, e);
+            Form_Add formAdd = new Form_Add();
+            formAdd.ShowDialog();
         }
     }
 

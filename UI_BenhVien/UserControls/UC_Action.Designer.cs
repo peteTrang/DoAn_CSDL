@@ -88,9 +88,8 @@ namespace UI_BenhVien.UserControls
             "Bệnh nhân"});
             this.cbObject.Location = new System.Drawing.Point(306, 13);
             this.cbObject.Name = "cbObject";
-            this.cbObject.Size = new System.Drawing.Size(89, 24);
+            this.cbObject.Size = new System.Drawing.Size(89, 26);
             this.cbObject.TabIndex = 1;
-            this.cbObject.SelectedIndexChanged += new System.EventHandler(this.cbObject_SelectedIndexChanged);
             // 
             // pnlShow
             // 
@@ -121,6 +120,7 @@ namespace UI_BenhVien.UserControls
             this.btnAdd.Size = new System.Drawing.Size(40, 40);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // UC_Action
             // 
